@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<form id="calculator" method="post">
+    <p>Amount: <input id="amount" /></p>
+    <p>Tip Percentage: <input id="percentage" /></p>
+    <hr />
+    <p>Tip: <input id="tip" disabled="disabled" /></p>
+    <p>Total: <input id="total" disabled="disabled" /></p>
+    <p><input type="submit" /></p>
+</form>
+
+<script>
+function calculate () {
+    
+    var amount = $('#amount').val();
+    var percentage = $('#percentage').val();
+    var tip = amount * (percentage / 100);
+    var total = Number(amount) + tip;
+    $('#tip').val( tip.toFixed(2) );
+    $('#total').val( total.toFixed(2) );
+    return false;
+}
+
+$('#calculator').submit( calculate );
+</script>
